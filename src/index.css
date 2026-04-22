@@ -1,0 +1,64 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  html {
+    -webkit-tap-highlight-color: transparent;
+  }
+
+  body {
+    @apply bg-slate-50 text-slate-900 dark:bg-slate-950 dark:text-slate-50;
+    @apply antialiased;
+    font-family: -apple-system, BlinkMacSystemFont, 'SF Pro Display', 'Segoe UI', Roboto, sans-serif;
+    /* Prevent overscroll bounce on iOS */
+    overscroll-behavior: none;
+  }
+
+  * {
+    @apply border-slate-200 dark:border-slate-700;
+  }
+
+  /* Smooth scrollbar in dark mode */
+  ::-webkit-scrollbar {
+    width: 6px;
+    height: 6px;
+  }
+  ::-webkit-scrollbar-track {
+    @apply bg-transparent;
+  }
+  ::-webkit-scrollbar-thumb {
+    @apply bg-slate-300 dark:bg-slate-600 rounded-full;
+  }
+}
+
+@layer components {
+  /* Card base styles */
+  .card {
+    @apply bg-white dark:bg-slate-800/60 rounded-2xl border border-slate-100 dark:border-slate-700/50;
+  }
+
+  /* Input base styles */
+  .input {
+    @apply w-full px-4 py-3 rounded-xl bg-slate-100 dark:bg-slate-800
+           text-slate-900 dark:text-slate-100
+           placeholder-slate-400 dark:placeholder-slate-500
+           border border-transparent focus:border-indigo-500 dark:focus:border-indigo-400
+           outline-none transition-colors;
+  }
+
+  /* Section header */
+  .section-header {
+    @apply text-xs font-semibold uppercase tracking-wider text-slate-400 dark:text-slate-500 mb-3 px-1;
+  }
+}
+
+@layer utilities {
+  /* Safe area padding for iOS-style bottom tabs */
+  .pb-safe {
+    padding-bottom: env(safe-area-inset-bottom, 0px);
+  }
+  .pt-safe {
+    padding-top: env(safe-area-inset-top, 0px);
+  }
+}
